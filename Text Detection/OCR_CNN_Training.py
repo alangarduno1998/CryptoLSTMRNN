@@ -1,0 +1,1 @@
+C:\Users\alang\anaconda3\envs\tf5\Scripts\pytesseract.exe
