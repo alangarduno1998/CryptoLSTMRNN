@@ -36,7 +36,7 @@ def normalize(data):
 
 mnist_data_normalized = normalize(mnist_data)
 
-X_train, X_test, Y_train, Y_test = train_test_split(mnist_data_normalized, mnist_label, test_size=0.20, random_state=42) # training data and test data split, rnadomized
+X_train, X_test, Y_train, Y_test = train_test_split(mnist_data_normalized, mnist_label, test_size=0.7, random_state=42) # training data and test data split, rnadomized
 Y_train = Y_train.reshape(Y_train.shape[0],1)
 Y_test = Y_test.reshape(Y_test.shape[0],1)
 print("The shape of the training set feature matrix is:", X_train.shape)
