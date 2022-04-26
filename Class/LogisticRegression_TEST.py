@@ -16,25 +16,21 @@ import pickle, time
 flag=0
 user_input_dataset = input("Enter the path to your dataset: ")
     # will check the file extension, if .tif then mnist and if .png then c.elegans
-
 for image in os.listdir(user_input_dataset):
     if image.endswith('.tif'):
         flag=1
-    elif user_input_dataset.endswith('.png'):
+    elif image.endswith('.png'):
         flag=2
-        print('here')
 
 
 if (flag==2):
     W = pd.read_csv("worm_weights.csv")
     W = np.array(W)
-    print('here')
     basepath_1 = user_input_dataset
     images = []
     filenames = []
 
     for image in os.listdir(basepath_1):
-        print('here')
         filenames.append(image)
         if os.path.isfile(os.path.join(basepath_1, image)):
             img = mpimg.imread(os.path.join(basepath_1, image))
@@ -44,7 +40,6 @@ if (flag==2):
 
     x = np.array(images).reshape(len(images), img.shape[0] * img.shape[1])
     x = np.hstack((x, np.ones((len(x), 1))))
-    print(x.shape)
     y_test = softmax(np.dot(x, W), axis=1)
 
     y_pred = np.array([9, 9])
